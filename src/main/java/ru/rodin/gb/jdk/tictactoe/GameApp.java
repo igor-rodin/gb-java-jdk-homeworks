@@ -7,5 +7,6 @@ public class GameApp {
         EventQueue.invokeLater(() -> {
             new GameWindow();
         });
+
     }
 }
