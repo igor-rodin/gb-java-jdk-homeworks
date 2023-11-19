@@ -117,9 +117,10 @@ public class ChatWindow extends JFrame {
 
     private void login() {
         user = loginField.getText();
-        if (!user.isEmpty()) {
-            logMessage("Пользователь " + user + " подключен");
+        if (user.isEmpty()) {
+            return;
         }
+        logMessage("Пользователь " + user + " подключен");
         logoutButton.setEnabled(true);
         connectButton.setEnabled(false);
         sendButton.setEnabled(true);
