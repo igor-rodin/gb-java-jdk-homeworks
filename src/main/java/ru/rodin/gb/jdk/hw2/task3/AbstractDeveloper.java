@@ -1,6 +1,6 @@
 package ru.rodin.gb.jdk.hw2.task3;
 
-abstract public class AbstractDeveloper implements Developer {
+abstract public class AbstractDeveloper {
     private String name;
     private String position;
 
