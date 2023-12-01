@@ -23,7 +23,7 @@ public class FruitBox<T extends Fruit> {
         return this.getWeight() == fruit.getWeight();
     }
 
-    public void moveAllTo(FruitBox<T> target) {
+    public void moveAllTo(FruitBox<? super T> target) {
         for (T fruit : fruits) {
             target.add(fruit);
         }

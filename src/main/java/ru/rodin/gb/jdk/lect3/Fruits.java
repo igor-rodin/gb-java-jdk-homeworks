@@ -6,6 +6,7 @@ public class Fruits {
         Apple apple = new Apple("green");
         Apple apple2 = new Apple("red");
         Apple apple3 = new Apple("yellow");
+
         Orange orange = new Orange("orange");
         Orange orange2 = new Orange("yellow");
 
@@ -22,10 +23,13 @@ public class Fruits {
 
         FruitBox<Orange> newOrangeBox = new FruitBox<>();
         FruitBox<Apple> newAppleBox = new FruitBox<>();
+        FruitBox<Fruit> emptyFruitBox = new FruitBox<>();
 
         orangeBox.moveAllTo(newOrangeBox);
         System.out.println(orangeBox.getFruits());
         System.out.println(newOrangeBox.getFruits());
+        newOrangeBox.moveAllTo(emptyFruitBox);
+        System.out.println(emptyFruitBox.getFruits());
 
         appleBox.moveAllTo(newAppleBox);
         System.out.println(appleBox.getFruits());
