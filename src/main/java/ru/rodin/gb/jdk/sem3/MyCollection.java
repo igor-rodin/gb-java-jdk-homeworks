@@ -27,6 +27,7 @@ public class MyCollection<E> {
     private E[] arr;
     private int size;
 
+    @SuppressWarnings("unchecked")
     public MyCollection() {
         arr = (E[]) new Object[DEFAULT_CAPACITY];
         size = 0;
@@ -77,6 +78,7 @@ public class MyCollection<E> {
         return -1;
     }
 
+    @SuppressWarnings("unchecked")
     private void resize() {
         E[] newArr = (E[]) new Object[arr.length * 2];
         System.arraycopy(arr, 0, newArr, 0, arr.length);
