@@ -10,13 +10,6 @@ public class Club<T extends Person> {
         this.persons = persons;
     }
 
-    public void work() {
-        System.out.println("In club:");
-        for (T p : persons) {
-            p.doWork();
-        }
-    }
-
     public void rest() {
         System.out.println("In club:");
         for (T p : persons) {

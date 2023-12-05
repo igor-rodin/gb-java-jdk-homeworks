@@ -16,11 +16,4 @@ public class Workplace<T extends Person> {
             p.doWork();
         }
     }
-
-    public void rest() {
-        System.out.println("Working place:");
-        for (T p : persons) {
-            p.haveRest();
-        }
-    }
 };

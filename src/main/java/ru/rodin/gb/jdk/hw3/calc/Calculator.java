@@ -19,6 +19,9 @@ public class Calculator {
     }
 
     public static <A1 extends Number, A2 extends Number> double divide(A1 arg1, A2 arg2) {
+        if (arg2.doubleValue() == 0) {
+            throw new IllegalArgumentException("Делить на ноль нельзя!");
+        }
         return arg1.doubleValue() / arg2.doubleValue();
     }
 }

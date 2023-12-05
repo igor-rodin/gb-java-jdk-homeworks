@@ -8,9 +8,7 @@ public class App {
         Workplace<Person> workplace = new Workplace<>(persons);
         Club<Person> club = new Club<>(persons);
         workplace.work();
-        workplace.rest();
 
-        club.work();
         club.rest();
     }
 }

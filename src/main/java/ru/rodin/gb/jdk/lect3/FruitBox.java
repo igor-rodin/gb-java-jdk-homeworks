@@ -20,7 +20,7 @@ public class FruitBox<T extends Fruit> {
     }
 
     boolean compare(FruitBox<? extends Fruit> fruit) {
-        return this.getWeight() == fruit.getWeight();
+        return this.getWeight() - fruit.getWeight() < 0.0001f;
     }
 
     public void moveAllTo(FruitBox<? super T> target) {
