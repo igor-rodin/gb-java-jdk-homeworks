@@ -18,17 +18,11 @@ public class Task3 {
         phones.put("87774567657", "Alexey");
         phones.put("8113111111", "Lena");
 
-        String minPhone = phones.keySet().stream().min((s1, s2) -> s1.compareTo(s2)).get();
-        System.out.println(phones.get(minPhone));
+        String manWithMinPhone = phones.entrySet().stream().min(Map.Entry.comparingByKey()).get().getValue();
+        System.out.println(manWithMinPhone);
 
-        String maxName = "";
-        String phone = "";
-        for (var entry : phones.entrySet()) {
-            if (entry.getValue().length() > maxName.length()) {
-                maxName = entry.getValue();
-                phone = entry.getKey();
-            }
-        }
-        System.out.println(phone);
+        String phoneMaxName = phones.entrySet().stream().min(Map.Entry.comparingByValue()).get().getKey();
+        System.out.println(phoneMaxName);
+
     }
 }
