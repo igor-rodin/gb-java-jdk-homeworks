@@ -30,6 +30,18 @@ public class EmployeeDirectory {
     }
 
     /**
+     * Добавляет нового сотрудника в справочник
+     * 
+     * @param personnalNumber табельный номер сотрудника
+     * @param name            имя сотрудника
+     * @param phoneNumber     телефон сотрудника
+     * @param experience      опыт работы сотрудника
+     */
+    public void addEmployee(String personnalNumber, String name, String phoneNumber, int experience) {
+        addEmployee(new Employee(personnalNumber, name, phoneNumber, experience));
+    }
+
+    /**
      * Добавляет сотрудника employee в справочник
      * 
      * @param employee
