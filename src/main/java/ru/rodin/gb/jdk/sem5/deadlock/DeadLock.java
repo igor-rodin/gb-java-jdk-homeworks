@@ -1,7 +1,5 @@
 package ru.rodin.gb.jdk.sem5.deadlock;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * В рамках выполнения задачи необходимо:
  * - Создать два класса ObjectA, ObjectB
