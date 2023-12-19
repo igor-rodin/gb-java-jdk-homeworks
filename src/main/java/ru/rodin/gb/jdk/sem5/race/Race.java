@@ -20,15 +20,18 @@ public class Race implements Runnable {
     private final CountDownLatch cdlGo = new CountDownLatch(1);
     private final ExecutorService executor = Executors.newFixedThreadPool(ATHLETES_COUNT);
 
+    private Race() {
+        executor.submit(new Runner("Участник 1", countDownLatch, cdlGo));
+        executor.submit(new Runner("Участник 2", countDownLatch, cdlGo));
+        executor.submit(new Runner("Участник 4", countDownLatch, cdlGo));
+    }
+
     public static void main(String[] args) {
         new Thread(new Race()).start();
     }
 
     private void go() throws InterruptedException {
         System.out.println("На старт!");
-        executor.submit(new Runner("Участник 1", countDownLatch, cdlGo));
-        executor.submit(new Runner("Участник 2", countDownLatch, cdlGo));
-        executor.submit(new Runner("Участник 4", countDownLatch, cdlGo));
         executor.shutdown();
         countDownLatch.await();
         System.out.println("Внимание!");
