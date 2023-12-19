@@ -1,6 +1,5 @@
 package ru.rodin.gb.jdk.hw5;
 
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -9,11 +8,10 @@ public class Philosopher implements Runnable {
     private final static int COUNT_EAT = 3;
 
     private final String name;
-    private final ReentrantLock lockFood;
+    private static final ReentrantLock lockFood = new ReentrantLock(false);
 
-    public Philosopher(String name, ReentrantLock lockFood) {
+    public Philosopher(String name) {
         this.name = name;
-        this.lockFood = lockFood;
     }
 
     @Override
@@ -21,8 +19,8 @@ public class Philosopher implements Runnable {
         int eats = 0;
         while (eats++ < COUNT_EAT) {
             try {
-                think();
                 eat(eats);
+                think();
             } catch (InterruptedException e) {
                 System.out.println(name + " is died");
             }
@@ -41,7 +39,6 @@ public class Philosopher implements Runnable {
 
     private void think() throws InterruptedException {
         System.out.println(name + " is thinking");
-        TimeUnit.MILLISECONDS.sleep(ThreadLocalRandom.current().nextInt(100, TIME_TO_EAT - 100));
     }
 
 }
