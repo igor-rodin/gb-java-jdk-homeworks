@@ -8,10 +8,11 @@ public class Philosopher implements Runnable {
     private final static int COUNT_EAT = 3;
 
     private final String name;
-    private static final ReentrantLock lockFood = new ReentrantLock(false);
+    private final ReentrantLock lockFood;
 
-    public Philosopher(String name) {
+    public Philosopher(String name, ReentrantLock lockFood) {
         this.name = name;
+        this.lockFood = lockFood;
     }
 
     @Override
@@ -30,8 +31,9 @@ public class Philosopher implements Runnable {
     private void eat(int eats) throws InterruptedException {
         lockFood.lock();
         try {
-            System.out.println(name + " is eating(" + eats + ")");
+            System.out.println(name + " is eating(" + eats + ") Start eating - " + System.currentTimeMillis());
             TimeUnit.MILLISECONDS.sleep(TIME_TO_EAT);
+            System.out.println(name + " is eating(" + eats + ") Stop eating - " + System.currentTimeMillis());
         } finally {
             lockFood.unlock();
         }

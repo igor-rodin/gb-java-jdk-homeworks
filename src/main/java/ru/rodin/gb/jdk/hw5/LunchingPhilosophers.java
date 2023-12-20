@@ -3,18 +3,20 @@ package ru.rodin.gb.jdk.hw5;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class LunchingPhilosophers implements Runnable {
     private static final int PHILOSOPH_COUNT = 5;
 
     private final ExecutorService executor = Executors.newFixedThreadPool(PHILOSOPH_COUNT);
+    private final ReentrantLock lockFood = new ReentrantLock(false);
 
     public LunchingPhilosophers() {
-        executor.submit(new Philosopher("Платон"));
-        executor.submit(new Philosopher("Аристотель"));
-        executor.submit(new Philosopher("Кант"));
-        executor.submit(new Philosopher("Сократ"));
-        executor.submit(new Philosopher("Ницше"));
+        executor.submit(new Philosopher("Платон", lockFood));
+        executor.submit(new Philosopher("Аристотель", lockFood));
+        executor.submit(new Philosopher("Кант", lockFood));
+        executor.submit(new Philosopher("Сократ", lockFood));
+        executor.submit(new Philosopher("Ницше", lockFood));
     }
 
     @Override
