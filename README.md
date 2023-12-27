@@ -13,3 +13,7 @@
 - Вывести на экран статистику по победам и поражениям
 
 Gradle проект находится в папке ```monty_hall/app```
+
+Пример вывода:
+
+<image src="./monty_hall/monty-hall.png" alt="monty-hall" width="1024px">

@@ -38,7 +38,7 @@ public class App {
         var app = new App();
         System.out.println("----------Игрок оставляет выбор двери-----------------------");
         app.testGame(Game.PlayerStrategy.STAY);
-        System.out.println("----------Игрок меняет выбор двери -------------------------");
+        System.out.println("----------Игрок меняет выбор двери ------------------------");
         app.testGame(Game.PlayerStrategy.CHANGE);
     }
 }
